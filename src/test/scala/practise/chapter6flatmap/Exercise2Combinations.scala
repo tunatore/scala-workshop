@@ -6,14 +6,29 @@ import org.scalatest.FunSuite
 class Exercise2Combinations extends FunSuite {
   object Exercise {
     //a helper function for combinationsFlatMap
-    def combinationsForOneLetter(letter: String, numbers: List[Int]): List[String] = ???
+    def combinationsForOneLetter(letter: String, numbers: List[Int]): List[String] = {
+        numbers.map { x => letter + x }
+    }
 
     //Create a list of all the combinations of letters and numbers (a1, a2, a3, b1, b2, .....)
-    def combinationsFlatMap(letters: List[String], numbers: List[Int]): List[String] = ???
+    def combinationsFlatMap(letters: List[String], numbers: List[Int]): List[String] = {
+        letters.flatMap { x => 
+                numbers.map {
+                      y => x + y
+                }  
+        }
+    }
 
     //Use for and yield here.
     //Should do the same as combinationsFlatMap
-    def combinationsFor(letters: List[String], numbers: List[Int]): List[String] = ???
+    def combinationsFor(letters: List[String], numbers: List[Int]): List[String] = {
+      
+     for {
+        x ← letters
+        y ← numbers
+      } yield(x+y) 
+
+    }
   }
   import Exercise._
 

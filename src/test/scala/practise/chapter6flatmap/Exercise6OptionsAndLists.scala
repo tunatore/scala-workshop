@@ -10,7 +10,9 @@ class Exercise6OptionsAndLists extends FunSuite {
 
   object Exercise {
     //hint: flatMap
-    def parseInts(input: List[String]): List[Int] = ???
+    def parseInts(input: List[String]): List[Int] = {
+      input.flatMap { x => parseInt(x) }
+    }
   }
   import Exercise._
 
