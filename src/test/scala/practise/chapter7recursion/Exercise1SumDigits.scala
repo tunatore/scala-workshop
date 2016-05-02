@@ -7,7 +7,14 @@ class Exercise1SumDigits extends FunSuite {
     //Given a non-negative int n, return the sum of its digits.
     //hint: modulo (%) and recursion
     //As always with recursion, think about the endcase(s) and decide if you want to work forward or backward.
-    def sumDigits(x: Int): Int = ???
+    def sumDigits(x: Int): Int = {
+      
+      if (x < 10) 
+        x 
+      else 
+        x % 10 + sumDigits(x/10)      
+       
+    }
   }
   import Exercise._
 

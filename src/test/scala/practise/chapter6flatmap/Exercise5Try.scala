@@ -11,10 +11,12 @@ class Exercise5Try extends FunSuite {
   def step1: Try[Step1Output] = Success(new Step1Output)
 
   class Step2Output
-  def step2(x: Step1Output): Try[Step2Output] = Success(new Step2Output())
+  def step2(x: Step1Output): Try[Step2Output] = Success(new Step2Output)
 
   object Exercise {
-    def allSteps: Try[Step2Output] = ???
+    def allSteps: Try[Step2Output] = Try(step1).flatMap { 
+                                x => x.flatMap { x => step2(x) }  
+    }
   }
   import Exercise._
 
